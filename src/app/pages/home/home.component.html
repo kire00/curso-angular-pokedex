@@ -1,0 +1,31 @@
+<!-- home.component.html -->
+<poke-header></poke-header>
+
+<main>
+  <section class="filters">
+    <h3>Filtros</h3>
+    <div class="filter__types">
+      <label for="type">Tipo:</label>
+      <select id="type" (change)="updateFilterType($event)">
+        <option value="">Selecione um tipo</option>
+        <option *ngFor="let type of types" [value]="type">{{ type | capitalize }}</option>
+      </select>
+    </div>
+    <div class="filter__generations">
+      <label for="generation">Geração:</label>
+      <select id="generation" (change)="updateFilterGeneration($event)">
+        <option value="">Selecione uma geração</option>
+        <option *ngFor="let gen of generations" [value]="gen">{{ gen | capitalize }}</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Seção de pesquisa -->
+  <section class="search">
+    <app-poke-search (emitSearch)="handleSearchEvent($event)"></app-poke-search>
+  </section>
+
+  <section class="filtered__pokemons">
+    <app-poke-list [searchQuery]="searchQuery" [filterType]="filterType" [filterGeneration]="filterGeneration"></app-poke-list>
+  </section>
+</main>

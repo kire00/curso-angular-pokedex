@@ -1,0 +1,37 @@
+
+
+<section class="listagem">
+  <div class="pokemon-grid">
+    <ng-template ngFor let-pokemon [ngForOf]="filteredPokemons">
+      <div class="pokemon-wrapper">
+        <a [routerLink]="['details', pokemon.status.id]" class="pokemon" *ngIf="pokemon.status">
+          <section class="pokemon__status">
+            <h2>
+              {{ pokemon.name }}
+            </h2>
+            <ul>
+              <li *ngFor="let value of pokemon.status.types" [ngStyle]="{'background-color': getPokemonTypeColor(value.type.name)}" class="pokemon-type">
+                {{ value.type.name | capitalize }}
+              </li>
+            </ul>
+            <h3>#{{ pokemon.status.id | padNumber:4 }}</h3>
+          </section>
+
+          <section class="pokemon__image">
+            <img
+              [src]="pokemon.status.sprites.other.dream_world.front_default"
+              [alt]="pokemon.name"
+            >
+          </section>
+        </a>
+      </div>
+    </ng-template>
+  </div>
+</section>
+
+<img
+  src="assets/error.png"
+  alt="Deu erro na mostragem do pokemon"
+  width="100%"
+  *ngIf="apiError"
+>

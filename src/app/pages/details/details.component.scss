@@ -1,0 +1,260 @@
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+}
+
+.pokemon__header {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	max-width: 1200px;
+	margin-bottom: 20px;
+	background: #f2f2f2;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	animation: fadeIn 1s ease-in-out;
+}
+
+.pokemon__image {
+	width: 150px;
+	height: 150px;
+	margin-right: 20px;
+	transition: transform 0.3s;
+}
+
+.pokemon__image:hover {
+	transform: scale(1.1);
+}
+
+.pokemon__info {
+	flex: 1;
+}
+
+.pokemon__info h1 {
+	font-size: 2rem;
+	margin-bottom: 10px;
+	animation: fadeInLeft 1s ease-in-out;
+}
+
+.pokemon__info p {
+	margin-bottom: 20px;
+	animation: fadeInRight 1s ease-in-out;
+}
+
+.pokemon__details > div {
+	margin-bottom: 10px;
+	animation: fadeInUp 1s ease-in-out;
+}
+
+.pokemon__details span {
+	display: inline-block;
+	margin-right: 5px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	color: white;
+	animation: fadeInUp 1s ease-in-out;
+}
+
+.pokemon__weaknesses {
+	width: 100%;
+	max-width: 1200px;
+	margin-bottom: 20px;
+	background: #ffffff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	animation: fadeIn 1s ease-in-out;
+}
+
+.pokemon__weaknesses h3 {
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+	animation: fadeInLeft 1s ease-in-out;
+}
+
+.weakness__list {
+	display: flex;
+	flex-wrap: wrap;
+	animation: fadeInUp 1s ease-in-out;
+}
+
+.weakness__list span {
+	display: inline-block;
+	margin: 5px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	color: white;
+	animation: fadeInUp 1s ease-in-out;
+}
+
+.pokemon__stats {
+	width: 100%;
+	max-width: 1200px;
+	margin-bottom: 20px;
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	animation: fadeIn 1s ease-in-out;
+}
+
+.pokemon__stats h3 {
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+	animation: fadeInLeft 1s ease-in-out;
+}
+
+.pokemon__stats ul {
+	list-style: none;
+	padding: 0;
+	animation: fadeInUp 1s ease-in-out;
+}
+
+.pokemon__stats li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	animation: fadeInUp 1s ease-in-out;
+}
+
+.stat-name {
+	width: 100px;
+	display: inline-block;
+}
+
+.stat-bar {
+	flex: 1;
+	height: 20px;
+	background: #a4a4a4;
+	border-radius: 10px;
+	margin-left: 10px;
+	overflow: hidden;
+}
+
+.stat-bar-fill {
+	height: 100%;
+	background: #4caf50;
+	text-align: center;
+	line-height: 20px;
+	color: white;
+	transition: width 0.5s;
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background: #1976d2;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	text-align: center;
+	animation: fadeIn 1s ease-in-out;
+}
+
+
+.pokemon__evolutions {
+	width: 100%;
+	max-width: 1200px;
+	margin-bottom: 20px;
+	background: #444;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	animation: fadeIn 1s ease-in-out;
+}
+
+.pokemon__evolutions h3 {
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+	color: white;
+	animation: fadeInLeft 1s ease-in-out;
+}
+
+.evolution__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	animation: fadeInUp 1s ease-in-out;
+}
+
+.evolution__list div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 10px;
+	background: #333;
+	padding: 15px;
+	border-radius: 50%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s;
+}
+
+.evolution__list div:hover {
+	transform: scale(1.1);
+}
+
+.evolution__list img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 5px;
+}
+
+.evolution__list span {
+	font-size: 1rem;
+	color: white;
+}
+
+.evolution__list a {
+	text-decoration: none;
+}
+
+img[alt="Deu erro na mostragem do pokemon"] {
+	margin-top: 20px;
+	animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+	  opacity: 0;
+	}
+	to {
+	  opacity: 1;
+	}
+}
+
+@keyframes fadeInLeft {
+	from {
+	  opacity: 0;
+	  transform: translateX(-20px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+	  opacity: 0;
+	  transform: translateX(20px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+	  opacity: 0;
+	  transform: translateY(20px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+}

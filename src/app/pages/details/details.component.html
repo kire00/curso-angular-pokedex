@@ -1,0 +1,74 @@
+<main>
+  <poke-header></poke-header>
+  <ng-template [ngIf]="isLoading">
+    <section class="pokemon__header">
+      <img
+        [src]="pokemon[0].sprites.other.dream_world.front_default"
+        [alt]="pokemon[0].name"
+        class="pokemon__image"
+      >
+      <div class="pokemon__info">
+        <h1>{{ pokemon[0].name | capitalize }}</h1>
+        <p>{{ pokemon[1].flavor_text_entries[0].flavor_text }}</p>
+        <div class="pokemon__details">
+          <div>
+            <strong>Altura:</strong> {{ pokemon[0].height / 10 }} m
+          </div>
+          <div>
+            <strong>Peso:</strong> {{ pokemon[0].weight / 10 }} kg
+          </div>
+          <div>
+            <strong>Tipo: </strong>
+            <span *ngFor="let type of pokemon[0].types" [style.background-color]="getPokemonTypeColor(type.type.name)">
+              {{ type.type.name | capitalize }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pokemon__weaknesses">
+      <h3>Fraquezas</h3>
+      <div class="weakness__list">
+        <span *ngFor="let weakness of weaknesses" [style.background-color]="getPokemonTypeColor(weakness)">
+          {{ weakness | capitalize }}
+        </span>
+      </div>
+    </section>
+
+    <section class="pokemon__stats">
+      <h3>Estatísticas</h3>
+      <ul>
+        <li *ngFor="let stat of pokemon[0].stats">
+          <span class="stat-name">{{ stat.stat.name | capitalize }}</span>
+          <div class="stat-bar">
+            <div class="stat-bar-fill" [style.width.%]="stat.base_stat / 2">{{ stat.base_stat }}</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="pokemon__evolutions">
+      <h3>Evoluções</h3>
+      <div class="evolution__list">
+        <div *ngFor="let evolution of evolutions">
+          <a [routerLink]="['/details', getPokemonId(evolution.url)]" target="blank">
+            <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + getPokemonId(evolution.url) + '.png'" [alt]="evolution.name">
+          </a>
+          <span>{{ evolution.name | capitalize }}</span>
+        </div>
+      </div>
+    </section>
+
+    <a [routerLink]="['']" class="btn btn__secondary">
+      Voltar
+    </a>
+  </ng-template>
+
+  <img
+    src="assets/error.png"
+    alt="Deu erro na mostragem do pokemon"
+    width="100%"
+    *ngIf="apiError"
+  >
+</main>
